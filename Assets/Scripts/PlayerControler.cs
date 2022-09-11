@@ -13,10 +13,18 @@ public class PlayerControler : MonoBehaviour
     public float puntosVidaPlayer; 
     public float vidaMaxPlayer = 3;
     public Image barraDeVida;
+
+    public Image energia;
+    public int cantEnergia;
+    public RectTransform posPrimerBarrita; // transform dentro del canvas para manjear ui
+    public Canvas MyCanvas;  // para dibujar mas energia (hacer hijos)
+    public int Offset; // donde dibujar las barritas
     // Start is called before the first frame update
     void Start()
     {
         puntosVidaPlayer = vidaMaxPlayer;
+
+        
     }
 
     // Update is called once per frame
@@ -71,12 +79,13 @@ public class PlayerControler : MonoBehaviour
 
     if (Input.GetKey ("space") && canJump) {
         canJump = false;
-        gameObject.GetComponent <Rigidbody2D>().AddForce(new Vector2(0, 500f));
+        gameObject.GetComponent <Rigidbody2D>().AddForce(new Vector2(0, 700f));
         gameObject.GetComponent <Animator>().SetBool("jumping", true);
     }
 
     if (Input.GetKey("f")) {
         gameObject.GetComponent <Animator>().SetBool("shoot", true);
+
         
     }
 
@@ -85,21 +94,57 @@ public class PlayerControler : MonoBehaviour
          gameObject.GetComponent <Animator>().SetBool("jumping", false);
         
 
-    if (Input.GetKeyDown ("f")) {
-        Instantiate(Bullet, PuntoDisparo.position, transform.rotation); // crea objeto en base a la rotacion
+    
     }
+    if (Input.GetKeyDown ("f")) {
+        if (cantEnergia > 0 ) {
+             Instantiate(Bullet, PuntoDisparo.position, transform.rotation);// crea objeto en base a la rotacion           
+             Destroy(MyCanvas.transform.GetChild(cantEnergia + 1).gameObject);
+                cantEnergia -= 1;
+        } 
+       
     }
 
+    if (cantEnergia <=0) {
+        Destroy(energia);
+    }
     }
 
     
 
-//SOLO SALTA CUANDO TOCA EL PISO
+//SOLO SALTA CUANDO TOCA EL PISO o PLATAFORMAS
     private void OnCollisionEnter2D (Collision2D collision) {
-        if (collision.transform.tag =="ground") {
+        if (collision.transform.tag =="ground" ) {
             canJump = true;
             
         }
+
+    
+    }
+
+   private void OnTriggerEnter2D (Collider2D col) {
+
+    Transform posBarrita = posPrimerBarrita; 
+
+        for (int i = 0; i < cantEnergia; i++)
+        {
+            //crea una var llamado newenergia. es una instancia de tipo energia  y la ubica en la primera posicion de la barra
+            Image NewEnergia = Instantiate(energia, posBarrita.position, Quaternion.identity );
+
+              NewEnergia.transform.parent = MyCanvas.transform;
+              posBarrita.position = new Vector2 (posBarrita.position.x , posBarrita.position.y + Offset);
+        }
+
+    //ESTO HAY QUE LIMITARLO MEJOR pq el max de balas tiene que ser siempre 8. ponele si le quedan 5 restantes se le tienen q sumar 3 no 8
+        if (col.gameObject.tag == "balas" ) {
+              Destroy(col.gameObject);
+              cantEnergia += 8;
+        
+        //Debug.Log ("agarra");
+        
+        } 
+
+       
     }
 
     public void TakeHit (float golpe) {
