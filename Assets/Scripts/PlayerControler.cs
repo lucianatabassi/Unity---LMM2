@@ -97,7 +97,7 @@ public class PlayerControler : MonoBehaviour
     
     }
     if (Input.GetKeyDown ("f")) {
-        if (cantEnergia > 0 ) {
+        if (cantEnergia > 0 ) { 
              Instantiate(Bullet, PuntoDisparo.position, transform.rotation);// crea objeto en base a la rotacion           
              Destroy(MyCanvas.transform.GetChild(cantEnergia + 1).gameObject);
                 cantEnergia -= 1;
@@ -105,7 +105,7 @@ public class PlayerControler : MonoBehaviour
        
     }
 
-    if (cantEnergia <=0) {
+    if (cantEnergia <=0) { //si no tiene energia, no dispara
         Destroy(energia);
     }
     }
