@@ -19,12 +19,19 @@ public class PlayerControler : MonoBehaviour
     public RectTransform posPrimerBarrita; // transform dentro del canvas para manjear ui
     public Canvas MyCanvas;  // para dibujar mas energia (hacer hijos)
     public int Offset; // donde dibujar las barritas
-    // Start is called before the first frame update
+ 
+
+ /*   public GameObject topRightLimitGameObject;
+     public GameObject bottomLeftLimitGameObject;
+     private Vector3 topRightLimit;
+     private Vector3 bottomLeftLimit;*/
+
     void Start()
     {
         puntosVidaPlayer = vidaMaxPlayer;
 
-        
+       /* topRightLimit = topRightLimitGameObject.transform.position;
+        bottomLeftLimit = bottomLeftLimitGameObject.transform.position;*/
     }
 
     // Update is called once per frame
@@ -73,14 +80,14 @@ public class PlayerControler : MonoBehaviour
     
     if (Input.GetKeyDown ("w") && canJump) {
         canJump = false;
-        gameObject.GetComponent <Rigidbody2D>().AddForce(new Vector2(0, 500f));
+        gameObject.GetComponent <Rigidbody2D>().AddForce(new Vector2(0, 400f));
         
     }
 
     if (Input.GetKey ("space") && canJump) {
         canJump = false;
-        gameObject.GetComponent <Rigidbody2D>().AddForce(new Vector2(0, 700f));
-        gameObject.GetComponent <Animator>().SetBool("jumping", true);
+        gameObject.GetComponent <Rigidbody2D>().AddForce(new Vector2(0, 600f));
+        //gameObject.GetComponent <Animator>().SetBool("jumping", true);
     }
 
     if (Input.GetKey("f")) {
@@ -112,7 +119,7 @@ public class PlayerControler : MonoBehaviour
 
     
 
-//SOLO SALTA CUANDO TOCA EL PISO o PLATAFORMAS
+//SOLO SALTA CUANDO TOCA EL PISO 
     private void OnCollisionEnter2D (Collision2D collision) {
         if (collision.transform.tag =="ground" ) {
             canJump = true;
@@ -123,26 +130,27 @@ public class PlayerControler : MonoBehaviour
     }
 
    private void OnTriggerEnter2D (Collider2D col) {
-
     Transform posBarrita = posPrimerBarrita; 
 
         for (int i = 0; i < cantEnergia; i++)
         {
-            //crea una var llamado newenergia. es una instancia de tipo energia  y la ubica en la primera posicion de la barra
+            //crea una var llamado newenergia. es una instancia de energia  y la ubica en la primera posicion de la barra
             Image NewEnergia = Instantiate(energia, posBarrita.position, Quaternion.identity );
 
               NewEnergia.transform.parent = MyCanvas.transform;
               posBarrita.position = new Vector2 (posBarrita.position.x , posBarrita.position.y + Offset);
         }
-
+        //JUNTAR BALAS (ENERGIA)
     //ESTO HAY QUE LIMITARLO MEJOR pq el max de balas tiene que ser siempre 8. ponele si le quedan 5 restantes se le tienen q sumar 3 no 8
-        if (col.gameObject.tag == "balas" ) {
+        if (col.gameObject.tag == "balas") {
               Destroy(col.gameObject);
-              cantEnergia += 8;
+              cantEnergia +=8;
+ 
         
         //Debug.Log ("agarra");
         
         } 
+         
 
        
     }
