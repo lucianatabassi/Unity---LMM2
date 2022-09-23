@@ -30,6 +30,18 @@ public class PlayerControler : MonoBehaviour
     {
         puntosVidaPlayer = vidaMaxPlayer;
 
+
+    // QUE ARRANQUE CON 8 BARRITAS DE ENTRADA
+        for (int i = 0; i < cantEnergia; i++)
+        
+        {
+            //crea una var llamado newenergia. es una instancia de energia  y la ubica en la primera posicion de la barra
+            Image NewEnergia = Instantiate(energia,posPrimerBarrita.position, Quaternion.identity );
+
+                NewEnergia.transform.parent = MyCanvas.transform;
+                posPrimerBarrita.position = new Vector2 (posPrimerBarrita.position.x , posPrimerBarrita.position.y + Offset);
+        }
+
        /* topRightLimit = topRightLimitGameObject.transform.position;
         bottomLeftLimit = bottomLeftLimitGameObject.transform.position;*/
     }
@@ -78,16 +90,17 @@ public class PlayerControler : MonoBehaviour
         transform.eulerAngles = new Vector3 (0,0, 0);
     }
     
-    if (Input.GetKeyDown ("w") && canJump) {
+   /* if (Input.GetKeyDown ("w") && canJump) {
         canJump = false;
         gameObject.GetComponent <Rigidbody2D>().AddForce(new Vector2(0, 400f));
         
-    }
+    }*/
 
     if (Input.GetKey ("space") && canJump) {
         canJump = false;
         gameObject.GetComponent <Rigidbody2D>().AddForce(new Vector2(0, 600f));
-        //gameObject.GetComponent <Animator>().SetBool("jumping", true);
+       // gameObject.GetComponent <Animator>().SetBool("jumping", true);
+        gameObject.GetComponent <Animator>().SetBool("mooving", false);
     }
 
     if (Input.GetKey("f")) {
@@ -108,13 +121,17 @@ public class PlayerControler : MonoBehaviour
              Instantiate(Bullet, PuntoDisparo.position, transform.rotation);// crea objeto en base a la rotacion           
              Destroy(MyCanvas.transform.GetChild(cantEnergia + 1).gameObject);
                 cantEnergia -= 1;
+            posPrimerBarrita.position = new Vector2 (posPrimerBarrita.position.x , posPrimerBarrita.position.y - Offset); // cuando se elimina una barrita, tambien se elimina su posicion. Esto es para que las nuevas se dibujen a partir de esa ultima que se elimino
+                
         } 
        
     }
 
     if (cantEnergia <=0) { //si no tiene energia, no dispara
         Destroy(energia);
+       
     }
+    
     }
 
     
@@ -126,30 +143,44 @@ public class PlayerControler : MonoBehaviour
             
         }
 
+        if (collision.transform.tag =="platform" ) {
+            canJump = true;
+            
+        }
+
+
+
     
     }
 
-   private void OnTriggerEnter2D (Collider2D col) {
-    Transform posBarrita = posPrimerBarrita; 
 
-        for (int i = 0; i < cantEnergia; i++)
+    //ESTO NO SE Ni COMO FUNCA LA VERDAD 
+   private void OnTriggerEnter2D (Collider2D col) { //cuando collider entra en contacto con otro collider
+
+   Transform posBarrita = posPrimerBarrita; 
+   int cantEnergiaRecogida = 1;
+
+
+        //JUNTAR BALAS (ENERGIA)
+       if (col.gameObject.tag == "balas" && cantEnergia < 8 ) {
+              Destroy(col.gameObject);
+    
+              cantEnergia +=1;
+    
+        for (int i = 0; i < cantEnergiaRecogida; i++)
+        
         {
             //crea una var llamado newenergia. es una instancia de energia  y la ubica en la primera posicion de la barra
             Image NewEnergia = Instantiate(energia, posBarrita.position, Quaternion.identity );
 
-              NewEnergia.transform.parent = MyCanvas.transform;
-              posBarrita.position = new Vector2 (posBarrita.position.x , posBarrita.position.y + Offset);
+                NewEnergia.transform.parent = MyCanvas.transform;
+                posBarrita.position = new Vector2 (posBarrita.position.x , posBarrita.position.y + Offset);
         }
-        //JUNTAR BALAS (ENERGIA)
-    //ESTO HAY QUE LIMITARLO MEJOR pq el max de balas tiene que ser siempre 8. ponele si le quedan 5 restantes se le tienen q sumar 3 no 8
-        if (col.gameObject.tag == "balas") {
-              Destroy(col.gameObject);
-              cantEnergia +=8;
- 
-        
-        //Debug.Log ("agarra");
+           
         
         } 
+
+        
          
 
        
@@ -164,22 +195,7 @@ public class PlayerControler : MonoBehaviour
 
     }
 
-    /*void ManageJump() {
-        if (gameObject.transform.position.y <= 0) {
-            canJump = true;
-        }
 
-        if (Input.GetKey("up") && canJump && gameObject.transform.position.y < 20) {
-            gameObject.transform.Translate(0, 10f * Time.deltaTime, 0);
-        }
-        else {
-            canJump = false;
-        }
-
-        if (gameObject.transform.position.y > 0){
-            gameObject.transform.Translate(0, -5f * Time.deltaTime, 0);
-        }
-    }*/
 
    
 }

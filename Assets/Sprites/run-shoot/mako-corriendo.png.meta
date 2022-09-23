@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e03bc16e81a8f8f4986a041cc32eac82
+guid: ca55999f77f1abe4086327aa8f5521fc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: caminar_0
+      name: mako-corriendo_0
       rect:
         serializedVersion: 2
-        x: 57
-        y: 127
-        width: 20
-        height: 49
+        x: 0
+        y: 37
+        width: 1182
+        height: 1213
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,314 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d861a292f6e80e4aa0e56a5055ccd64
-      internalID: 402741588
+      spriteID: da3b911131e347c499db42568e824588
+      internalID: 1679941351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: caminar_1
+      name: mako-corriendo_1
       rect:
         serializedVersion: 2
-        x: 108
-        y: 127
-        width: 19
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cf84e2916fb39d04c85841dee1c04152
-      internalID: 1789061752
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caminar_2
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 127
-        width: 16
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f925aa723abc0c44fb7d533c37f1e28d
-      internalID: 1959577712
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caminar_3
-      rect:
-        serializedVersion: 2
-        x: 204
-        y: 127
-        width: 11
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8e8d5f51aa64f714dae9c95a67d7aa29
-      internalID: 1105206685
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caminar_4
-      rect:
-        serializedVersion: 2
-        x: 246
-        y: 127
-        width: 11
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b2f7fc8d54c42246b216869441038a0
-      internalID: -2129688009
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caminar_5
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 127
-        width: 11
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f29194d2dcc243478992de3a1f124e6
-      internalID: -1262391474
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caminar_6
-      rect:
-        serializedVersion: 2
-        x: 330
-        y: 127
-        width: 12
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e139632095b4567418fe2f7428957563
-      internalID: -160225624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caminar_7
-      rect:
-        serializedVersion: 2
-        x: 373
-        y: 127
-        width: 17
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 650c2a72cd328de49a85f30b3c6bfbaf
-      internalID: 2082407636
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caminar_8
-      rect:
-        serializedVersion: 2
-        x: 421
-        y: 127
-        width: 19
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09f0f9f7855485f47bb6edf6599b7e4e
-      internalID: 158575686
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caminar_9
-      rect:
-        serializedVersion: 2
-        x: 471
-        y: 127
-        width: 19
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b4c8e4faaa0497247959719267c541a6
-      internalID: 992547912
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caminar_10
-      rect:
-        serializedVersion: 2
-        x: 57
-        y: 46
-        width: 16
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 48787635cd4369445a5edf56ee0673c0
-      internalID: -1900107673
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caminar_11
-      rect:
-        serializedVersion: 2
-        x: 108
-        y: 46
-        width: 11
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3206467786470645853b6bd9aec2c3e
-      internalID: -1095278431
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caminar_12
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 46
-        width: 11
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4fb509a3e4660548baf12f96cab9c9d
-      internalID: -935533388
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caminar_13
-      rect:
-        serializedVersion: 2
-        x: 204
-        y: 46
-        width: 13
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 99971b854cca5924889ad9ebcaa36a28
-      internalID: -1394748435
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caminar_14
-      rect:
-        serializedVersion: 2
-        x: 246
-        y: 46
-        width: 14
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2d63041f7ae6fe4da2af365188dafdb
-      internalID: 1922951030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caminar_15
-      rect:
-        serializedVersion: 2
-        x: 288
+        x: 1175
         y: 47
-        width: 19
-        height: 50
+        width: 1051
+        height: 1200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -445,8 +151,386 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62f602a0f7b0a0c44a29332d564697bb
-      internalID: 335483840
+      spriteID: 826557e118668794dbaf19c4520549f2
+      internalID: -1645948403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_2
+      rect:
+        serializedVersion: 2
+        x: 2349
+        y: 31
+        width: 968
+        height: 1219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a00e7937dd78ad488a0cba9913d99e8
+      internalID: -968657798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_3
+      rect:
+        serializedVersion: 2
+        x: 3637
+        y: 41
+        width: 619
+        height: 1209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b6f60c26146a56468ab731019623e64
+      internalID: -165246434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_4
+      rect:
+        serializedVersion: 2
+        x: 4380
+        y: 44
+        width: 797
+        height: 1282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 67}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abc1102214e4ddf47b73fc81420ea519
+      internalID: -2059428348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_5
+      rect:
+        serializedVersion: 2
+        x: 5278
+        y: 44
+        width: 1155
+        height: 1203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a1fe2ec8ec13a4ea8706368b60f131
+      internalID: -44037515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_6
+      rect:
+        serializedVersion: 2
+        x: 6620
+        y: 955
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ec5117996fc0a428655237e9c98fc8
+      internalID: -1772631657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_7
+      rect:
+        serializedVersion: 2
+        x: 6591
+        y: 829
+        width: 50
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a366d06e00f8e6244aeaa1896d6a5dad
+      internalID: 123537600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_8
+      rect:
+        serializedVersion: 2
+        x: 6601
+        y: 808
+        width: 40
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d1a6f020ad3cd4ebd4ddbbbf5b1fb7
+      internalID: -1066387159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_9
+      rect:
+        serializedVersion: 2
+        x: 6591
+        y: 819
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2acd3989ee97dd94c9ff55e9f85ee4f7
+      internalID: -872767241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_10
+      rect:
+        serializedVersion: 2
+        x: 6591
+        y: 786
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc52886a560f0a4ebeda4676bcf8cb2
+      internalID: -731420337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_11
+      rect:
+        serializedVersion: 2
+        x: 6601
+        y: 761
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 619c1a39f25dc7b46ab93cf34c72732d
+      internalID: 1737839835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_12
+      rect:
+        serializedVersion: 2
+        x: 6611
+        y: 749
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75b84e647e75bd6489520cd2fa6803ed
+      internalID: -551633509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_13
+      rect:
+        serializedVersion: 2
+        x: 6615
+        y: 735
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f53f54732bd3d5e4fb401bf60a49b2f1
+      internalID: 576320138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_14
+      rect:
+        serializedVersion: 2
+        x: 4433
+        y: 39
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97f1a02c11db55b479b48f1148fbd308
+      internalID: 526764307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_15
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 42
+        width: 6
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ba50c758a6a73f49a77f13d5813fc95
+      internalID: 1177996914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_16
+      rect:
+        serializedVersion: 2
+        x: 4439
+        y: 20
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb37f376edb3ad944b9c71da8f2f3c6f
+      internalID: 1777168993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_17
+      rect:
+        serializedVersion: 2
+        x: 4530
+        y: 0
+        width: 74
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7551c8d458d95c4eac672b750e87c8f
+      internalID: -270413612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_18
+      rect:
+        serializedVersion: 2
+        x: 4472
+        y: 7
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f6bf0969245a1c4db8687ca389a15b6
+      internalID: 1630786972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mako-corriendo_19
+      rect:
+        serializedVersion: 2
+        x: 4496
+        y: 0
+        width: 32
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d5b4fc8e79e29745ae1991cd0f2be19
+      internalID: 1017547487
       vertices: []
       indices: 
       edges: []
@@ -462,22 +546,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      caminar_7: 2082407636
-      caminar_14: 1922951030
-      caminar_10: -1900107673
-      caminar_1: 1789061752
-      caminar_3: 1105206685
-      caminar_13: -1394748435
-      caminar_5: -1262391474
-      caminar_6: -160225624
-      caminar_8: 158575686
-      caminar_11: -1095278431
-      caminar_0: 402741588
-      caminar_9: 992547912
-      caminar_15: 335483840
-      caminar_4: -2129688009
-      caminar_2: 1959577712
-      caminar_12: -935533388
+      mako-corriendo_7: 123537600
+      mako-corriendo_9: -872767241
+      mako-corriendo_19: 1017547487
+      mako-corriendo_4: -2059428348
+      mako-corriendo_10: -731420337
+      mako-corriendo_15: 1177996914
+      mako-corriendo_18: 1630786972
+      mako-corriendo_17: -270413612
+      mako-corriendo_14: 526764307
+      mako-corriendo_0: 1679941351
+      mako-corriendo_16: 1777168993
+      mako-corriendo_11: 1737839835
+      mako-corriendo_8: -1066387159
+      mako-corriendo_5: -44037515
+      mako-corriendo_2: -968657798
+      mako-corriendo_1: -1645948403
+      mako-corriendo_6: -1772631657
+      mako-corriendo_12: -551633509
+      mako-corriendo_3: -165246434
+      mako-corriendo_13: 576320138
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
