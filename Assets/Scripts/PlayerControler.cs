@@ -8,7 +8,7 @@ public class PlayerControler : MonoBehaviour
    // public Transform bala;
     public Transform PuntoDisparo;  // desde donde sale la bala
     public bullet Bullet; // img bala
-    bool  canJump;
+    //bool  canJump;
 
     public float velCorrer;
     public float velSaltar = 3;
@@ -19,17 +19,20 @@ public class PlayerControler : MonoBehaviour
     public Image barraDeVida;
 
     public Image energia;
+    public Image nivelEnergia;
     public int cantEnergia;
     public RectTransform posPrimerBarrita; // transform dentro del canvas para manjear ui
     public Canvas MyCanvas;  // para dibujar mas energia (hacer hijos)
     public int Offset; // donde dibujar las barritas
- 
+    
 
+ 
     void Start()
     {
         puntosVidaPlayer = vidaMaxPlayer;
         rb2D = GetComponent<Rigidbody2D>(); // mete el componente rigidbody dentro de la variable
 
+        //nivelEnergia.GetComponent<Image>().color = new Color (0, 240, 255 );
 
     // QUE ARRANQUE CON 8 BARRITAS DE ENTRADA
         for (int i = 0; i < cantEnergia; i++)
@@ -40,6 +43,7 @@ public class PlayerControler : MonoBehaviour
 
                 NewEnergia.transform.parent = MyCanvas.transform;
                 posPrimerBarrita.position = new Vector2 (posPrimerBarrita.position.x , posPrimerBarrita.position.y + Offset);
+                
         }
 
     }
@@ -50,7 +54,7 @@ public class PlayerControler : MonoBehaviour
 
     if (Input.GetKey("a")) 
     {
-        rb2D.velocity = new Vector2 (-velCorrer, rb2D.velocity.y); // en que direccion ir (eje y se queda como esta)
+        rb2D.velocity = new Vector2 (-velCorrer, rb2D.velocity.y); // en que direccion ir (eje Y se queda como esta)
         //gameObject.GetComponent <Rigidbody2D>().AddForce(new Vector2(-800f * Time.deltaTime, 0));
         gameObject.GetComponent <Animator>().SetBool("mooving", true);
         gameObject.GetComponent <Animator>().SetBool("shoot", false);
@@ -112,6 +116,12 @@ public class PlayerControler : MonoBehaviour
         Destroy(energia);
        
     }
+
+    if (cantEnergia <=4) {
+        nivelEnergia.GetComponent<Image>().color = new Color (255, 0, 255);
+        //energia.GetComponent<Image>().color = new Color (0, 0, 0);
+    }
+
     
     }
 
@@ -159,7 +169,22 @@ public class PlayerControler : MonoBehaviour
        
     }
 
-    public void TakeHit (float golpe) {
+    private void OnCollisionEnter2D (Collision2D collision) { // verificar q colisionamos con la plataforma cuando se mueve
+        if (collision.gameObject.tag == "plataformaMovible") {
+            transform.parent = collision.transform;
+
+        }
+    }
+
+    private void OnCollisionExit2D (Collision2D collision) { // q el personaje ya no se mueva con la plataforma cuando ya se bajo
+        if (collision.gameObject.tag == "plataformaMovible") {
+            transform.parent = null;
+
+        }
+    }
+
+
+    public void TakeHit (float golpe) { // personaje pierde vida
         puntosVidaPlayer -= golpe;
        if (puntosVidaPlayer <=0) {
             Destroy(gameObject);
