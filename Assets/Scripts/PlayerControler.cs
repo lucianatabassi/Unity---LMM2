@@ -10,6 +10,10 @@ public class PlayerControler : MonoBehaviour
     public bullet Bullet; // img bala
     bool  canJump;
 
+    public float velCorrer;
+    public float velSaltar = 3;
+    Rigidbody2D rb2D;
+
     public float puntosVidaPlayer; 
     public float vidaMaxPlayer = 3;
     public Image barraDeVida;
@@ -21,14 +25,10 @@ public class PlayerControler : MonoBehaviour
     public int Offset; // donde dibujar las barritas
  
 
- /*   public GameObject topRightLimitGameObject;
-     public GameObject bottomLeftLimitGameObject;
-     private Vector3 topRightLimit;
-     private Vector3 bottomLeftLimit;*/
-
     void Start()
     {
         puntosVidaPlayer = vidaMaxPlayer;
+        rb2D = GetComponent<Rigidbody2D>(); // mete el componente rigidbody dentro de la variable
 
 
     // QUE ARRANQUE CON 8 BARRITAS DE ENTRADA
@@ -42,81 +42,62 @@ public class PlayerControler : MonoBehaviour
                 posPrimerBarrita.position = new Vector2 (posPrimerBarrita.position.x , posPrimerBarrita.position.y + Offset);
         }
 
-       /* topRightLimit = topRightLimitGameObject.transform.position;
-        bottomLeftLimit = bottomLeftLimitGameObject.transform.position;*/
     }
 
-    // Update is called once per frame
     void Update()
     {
         barraDeVida.fillAmount = puntosVidaPlayer / vidaMaxPlayer;
 
-        //UNA FORMA DE HACERLO//
-       /* gameObject.transform.position = new Vector3(gameObject.transform.position.x+3f * Time.deltaTime , gameObject.transform.position.y, gameObject.transform.position.z); */
-
-       //FORMA ABREVIADA//
-       /*gameObject.transform.Translate(2f * Time.deltaTime, 0, 0);*/
-
-        //COMPROBAR EN CADA FRAME SI ESTAMOS PULSANDO UNA TECLA O NO//
-      /*  if (Input.GetKey("left")) {
-            gameObject.transform.Translate(-2f * Time.deltaTime, 0, 0);
-        }
-
-        if (Input.GetKey("right")) {
-            gameObject.transform.Translate(2f * Time.deltaTime, 0, 0);
-        }
-
-    ManageJump();*/
-
     if (Input.GetKey("a")) 
     {
-        gameObject.GetComponent <Rigidbody2D>().AddForce(new Vector2(-800f * Time.deltaTime, 0));
+        rb2D.velocity = new Vector2 (-velCorrer, rb2D.velocity.y); // en que direccion ir (eje y se queda como esta)
+        //gameObject.GetComponent <Rigidbody2D>().AddForce(new Vector2(-800f * Time.deltaTime, 0));
         gameObject.GetComponent <Animator>().SetBool("mooving", true);
-        gameObject.GetComponent <Animator>().SetBool("jumping", false);
         gameObject.GetComponent <Animator>().SetBool("shoot", false);
        //gameObject.GetComponent <SpriteRenderer>().flipX = true;
-       transform.eulerAngles = new Vector3 (0,180, 0);
+       transform.eulerAngles = new Vector3 (0,180, 0); // para voltear al personaje
         
     }
    
 
     if (Input.GetKey("d")) 
     {
-        gameObject.GetComponent <Rigidbody2D>().AddForce(new Vector2(800f * Time.deltaTime, 0));
+         rb2D.velocity = new Vector2 (velCorrer, rb2D.velocity.y); // en que direccion ir (eje y se queda como esta)
+       // gameObject.GetComponent <Rigidbody2D>().AddForce(new Vector2(800f * Time.deltaTime, 0));
         gameObject.GetComponent <Animator>().SetBool("mooving", true);
-        gameObject.GetComponent <Animator>().SetBool("jumping", false);
         gameObject.GetComponent <Animator>().SetBool("shoot", false);
         //gameObject.GetComponent <SpriteRenderer>().flipX = false;
-        transform.eulerAngles = new Vector3 (0,0, 0);
+        transform.eulerAngles = new Vector3 (0,0, 0); // para voltear al personaje
     }
     
-   /* if (Input.GetKeyDown ("w") && canJump) {
-        canJump = false;
-        gameObject.GetComponent <Rigidbody2D>().AddForce(new Vector2(0, 400f));
-        
-    }*/
 
-    if (Input.GetKey ("space") && canJump) {
+   /* if (Input.GetKey ("space") && canJump) {
         canJump = false;
-        gameObject.GetComponent <Rigidbody2D>().AddForce(new Vector2(0, 600f));
+        rb2D.velocity = new Vector2 (rb2D.velocity.x, velSaltar);
+        //gameObject.GetComponent <Rigidbody2D>().AddForce(new Vector2(0, velSaltar));
        // gameObject.GetComponent <Animator>().SetBool("jumping", true);
+        gameObject.GetComponent <Animator>().SetBool("mooving", false);
+    }*/
+      if (Input.GetKey ("space")  && tocaPlataforma.enPlat )
+    {
+        rb2D.velocity = new Vector2 (rb2D.velocity.x, velSaltar);
         gameObject.GetComponent <Animator>().SetBool("mooving", false);
     }
 
-    if (Input.GetKey("f")) {
+    if (!Input.GetKey("a") && !Input.GetKey("d") && !Input.GetKeyDown("w") && !Input.GetKey ("space") ) { // esto es para que las animaciones no sigan funcionando cuando se dejan d presionar las teclas
+         gameObject.GetComponent <Animator>().SetBool("mooving", false);
+         gameObject.GetComponent <Animator>().SetBool("jumping", false);
+           
+    }
+
+
+    if (Input.GetKey("mouse 0")) { //dispara con el mouse
         gameObject.GetComponent <Animator>().SetBool("shoot", true);
 
         
     }
-
-    if (!Input.GetKey("a") && !Input.GetKey("d") && !Input.GetKeyDown("w") && !Input.GetKey ("space") && canJump) {
-         gameObject.GetComponent <Animator>().SetBool("mooving", false);
-         gameObject.GetComponent <Animator>().SetBool("jumping", false);
-        
-
-    
-    }
-    if (Input.GetKeyDown ("f")) {
+   
+    if (Input.GetKeyDown ("mouse 0")) { //dispara con el mouse
         if (cantEnergia > 0 ) { 
              Instantiate(Bullet, PuntoDisparo.position, transform.rotation);// crea objeto en base a la rotacion           
              Destroy(MyCanvas.transform.GetChild(cantEnergia + 1).gameObject);
@@ -137,21 +118,17 @@ public class PlayerControler : MonoBehaviour
     
 
 //SOLO SALTA CUANDO TOCA EL PISO 
-    private void OnCollisionEnter2D (Collision2D collision) {
+  /* private void OnCollisionEnter2D (Collision2D collision) {
         if (collision.transform.tag =="ground" ) {
             canJump = true;
             
         }
-
-        if (collision.transform.tag =="platform" ) {
+        /*if (collision.transform.tag =="platform" ) {
             canJump = true;
             
         }
-
-
-
-    
-    }
+           
+    }*/
 
 
     //ESTO NO SE Ni COMO FUNCA LA VERDAD 
@@ -179,10 +156,6 @@ public class PlayerControler : MonoBehaviour
            
         
         } 
-
-        
-         
-
        
     }
 

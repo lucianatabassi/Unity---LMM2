@@ -30,6 +30,10 @@ public class bullet : MonoBehaviour
             enemy.TakeHit(hit); //nivel de daño que le pongamos
             Destroy(gameObject);
         }
+
+        if (collision.transform.tag =="ground" ) {
+            Destroy(gameObject);
+        }
         
     }
     
