@@ -24,6 +24,8 @@ public class PlayerControler : MonoBehaviour
     public RectTransform posPrimerBarrita; // transform dentro del canvas para manjear ui
     public Canvas MyCanvas;  // para dibujar mas energia (hacer hijos)
     public int Offset; // donde dibujar las barritas
+
+
     
 
  
@@ -32,7 +34,7 @@ public class PlayerControler : MonoBehaviour
         puntosVidaPlayer = vidaMaxPlayer;
         rb2D = GetComponent<Rigidbody2D>(); // mete el componente rigidbody dentro de la variable
 
-        //nivelEnergia.GetComponent<Image>().color = new Color (0, 240, 255 );
+        nivelEnergia.GetComponent<Image>().color = new Color (0, 240, 255 );
 
     // QUE ARRANQUE CON 8 BARRITAS DE ENTRADA
         for (int i = 0; i < cantEnergia; i++)
@@ -119,9 +121,15 @@ public class PlayerControler : MonoBehaviour
 
     if (cantEnergia <=4) {
         nivelEnergia.GetComponent<Image>().color = new Color (255, 0, 255);
-        //energia.GetComponent<Image>().color = new Color (0, 0, 0);
+       // energia.GetComponent<Image>().color = new Color (0, 0, 0);
+      // MyCanvas.GetComponent<Image>().color = new Color (0, 0, 0);
+        
     }
 
+    if (cantEnergia >=5) {
+        nivelEnergia.GetComponent<Image>().color = new Color (0, 240, 255);
+       
+    }
     
     }
 
@@ -162,6 +170,7 @@ public class PlayerControler : MonoBehaviour
 
                 NewEnergia.transform.parent = MyCanvas.transform;
                 posBarrita.position = new Vector2 (posBarrita.position.x , posBarrita.position.y + Offset);
+                
         }
            
         
